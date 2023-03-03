@@ -2,4 +2,20 @@
 {% load static %}
 
 {% block content %}
+<main>
+  {% for post in posts %}
+  <article class="post">
+    <header class="post-header">
+        <h2 class="post-title"><a href="#" class="post-link">{{ post.title }}</a></h2>
+        <p class="post-date">{{ post.time_create}}</p>
+
+    </header>
+    <div class="post-content">{{ post.text }}</div>
+    <div class="post-content">{{ post.author }}</div>
+    {% if post.image %}
+    <img src="{{ post.image.url }}" width="30%">
+    {% endif %}
+  </article>
+  {% endfor %}
+</main>
 {% endblock content %}

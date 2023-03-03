@@ -1,13 +1,21 @@
 from django.shortcuts import render
-
+from .models import Post
 def main(request):
-    return render(request,'post/main.html')
+    content = Post.objects.all()
+    context = {
+        'title':'Главная страница',
+        'posts':content,
+    }
+    return render(request,'post/main.html',context=context)
 
 def about(request):
-    return render(request,'post/about.html')
+    context = {'title': 'О нас'}
+    return render(request,'post/about.html',context=context)
 
 def contact(request):
-    return render(request,'post/contact.html')
+    context = {'title': 'Контакты'}
+    return render(request,'post/contact.html',context=context)
 
 def new_post(request):
-    return render(request,'post/new_post.html')
+    context = {'title': 'Новый пост'}
+    return render(request,'post/new_post.html',context=context)

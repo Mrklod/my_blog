@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Мой блог</title>
+	<title>{{ title }}</title>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 	{% block style %}
 	{% endblock style %}
@@ -28,8 +28,5 @@
 		{% block content %}
 		{% endblock content %}
 	</main>
-	<footer class="site-footer">
-		<p class="copy">&copy; 2023 Все права защищены.</p>
-	</footer>
 </body>
 </html>
