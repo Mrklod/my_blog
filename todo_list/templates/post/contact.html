@@ -1,0 +1,20 @@
+{% extends 'post/base.html' %}
+{% load static %}
+
+{% block style %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
+{% endblock style %}
+
+{% block content %}
+<div class="content">
+  <div class="contacts">
+    <h1>Контакты</h1>
+    <p>Свяжитесь с нами, если у вас есть какие-то вопросы или предложения:</p>
+    <ul>
+      <li>Телефон: <a href="#">+1 (234) 567-890</a></li>
+      <li>Email: <a href="#">info@myblog.ua</a></li>
+      <li>Адрес: 123 Main St, Anytown, USA</li>
+    </ul>
+  </div>
+</div>
+{% endblock content %}

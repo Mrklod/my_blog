@@ -1,0 +1,29 @@
+{% extends 'post/base.html' %}
+{% load static %}
+
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/new_post.css' %}">
+{% endblock style %}
+
+
+{% block content %}
+<div class="content">
+    <div class="add-post">
+        <h1>Добавить пост</h1>
+        <form action="#" method="POST">
+            <label for="title">Заголовок:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="author">Автор:</label>
+            <input type="text" id="author" name="author" required>
+
+            <label for="content">Содержание:</label>
+            <textarea id="content" name="content" required></textarea>
+
+            <input type="submit" value="Добавить">
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'post/base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
+{% endblock style %}
+
+{% block content %}
+<div class="content">
+    <div class="about">
+        <h1>О нас</h1>
+        <p>
+            Мы команда энтузиастов, которые любят создавать полезные и интересные
+            материалы. Мы верим, что наш блог может помочь людям получить новые
+            знания и навыки.
+        </p>
+
+        <h2>Наша команда</h2>
+        <p>Александр Осин - основатель блога,разработчик</p>
+
+
+        <h2>Связаться с нами</h2>
+        <p>
+            Если у вас есть вопросы или предложения, пожалуйста, напишите нам на
+            электронную почту:
+            <a href="mailto:info@moyblog.ru">info@moyblog.ru</a>.
+        </p>
+    </div>
+</div>
+{% endblock content %}
