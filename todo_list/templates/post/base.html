@@ -18,9 +18,13 @@
 				<li><a href="{% url 'about' %}" class="menu-item">О нас</a></li>
 				<li><a href="{% url 'contact' %}" class="menu-item">Контакты</a></li>
 				<li><a href="{% url 'new_post' %}" class="menu-item">Добавить пост</a></li>
+				{% if user.is_authenticated %}
+				<li><a href="#" class="menu-item">{{ user.username }}</a></li>
+				<li><a href="{% url 'logout' %}" class="menu-item">Выйти</a></li>
+				{% else %}
 				<li><a href="{% url 'login' %}" class="menu-item">Войти</a></li>
 				<li><a href="{% url 'register' %}" class="menu-item">Регистрация</a></li>
-				<li><a href="#" class="menu-item">Выйти</a></li>
+				{% endif %}
 			</ul>
 		</nav>
 	</header>

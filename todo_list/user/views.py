@@ -1,10 +1,38 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponseRedirect
+from django.contrib import auth
+from django.urls import reverse
+
+from .forms import FormRegister,FormLogin
+
 
 # Create your views here.
 def register(request):
-    context = {'title': 'Регистрация'}
+    if request.method == 'POST':
+        form = FormRegister(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('login'))
+    else:
+        form = FormRegister()
+    context = {'title': 'Регистрация','form':form}
     return render(request,'user/register.html',context=context)
 
 def login(request):
-    context = {'title': 'Авторизация'}
+    if request.method == 'POST':
+        form = FormLogin(request.POST)
+        if form.is_valid:
+            username = request.POST['username']
+            password = request.POST['password']
+            user = auth.authenticate(username=username,password=password)
+            if user:
+                auth.login(request,user)
+                return HttpResponseRedirect(reverse('main'))
+    else:
+        form = FormLogin()
+    context = {'title': 'Авторизация','form':form}
     return render(request,'user/login.html',context=context)
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect(reverse('main'))
+
