@@ -11,15 +11,20 @@
 <div class="content">
     <div class="add-post">
         <h1>Добавить пост</h1>
-        <form action="#" method="POST">
-            <label for="title">Заголовок:</label>
-            <input type="text" id="title" name="title" required>
+        <form action="{% url 'new_post' %}" method="POST">
+            {% csrf_token %}
+            <label for="{{ form.title.id_for_label }}">Заголовок:</label>
+            {{ form.title }}
 
-            <label for="author">Автор:</label>
-            <input type="text" id="author" name="author" required>
+            <label for="{{ form.text.id_for_label }}">Содержание:</label>
+            {{ form.text }}
 
-            <label for="content">Содержание:</label>
-            <textarea id="content" name="content" required></textarea>
+            <label for="{{ form.cat.id_for_label }}">Категория:</label>
+            {{ form.cat }}
+
+            <label for="{{ form.author.id_for_label }}">Категория:</label>
+            {{ form.author }}
+
 
             <input type="submit" value="Добавить">
         </form>

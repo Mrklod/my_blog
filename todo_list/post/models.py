@@ -17,6 +17,7 @@ class Post(models.Model):
     author = models.ForeignKey(Users,on_delete=models.CASCADE)
     image = models.ImageField(blank=True,upload_to='post_img')
     time_create = models.DateTimeField(auto_now=True)
+    cat = models.ForeignKey(Category,on_delete=models.CASCADE,blank=True)
 
     def __str__(self):
         return self.title

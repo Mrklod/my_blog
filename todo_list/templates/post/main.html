@@ -11,7 +11,7 @@
 
     </header>
     <div class="post-content">{{ post.text }}</div>
-    <div class="post-content">{{ post.author }}</div>
+    <div class="post-content">Автор:{{ post.author }} ___ Категория:{{ post.cat }}</div>
     {% if post.image %}
     <img src="{{ post.image.url }}" width="30%">
     {% endif %}
