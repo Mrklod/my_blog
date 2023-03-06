@@ -3,6 +3,7 @@
 
 {% block content %}
 <main>
+  {% if user.is_authenticated %}
   {% for post in posts %}
   <article class="post">
     <header class="post-header">
@@ -18,4 +19,8 @@
   </article>
   {% endfor %}
 </main>
+{% else %}
+<h1>Привествую путник</h1>
+<p>Тут будут твои посты</p>
+{% endif %}
 {% endblock content %}

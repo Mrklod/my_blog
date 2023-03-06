@@ -8,7 +8,7 @@ from .forms import FormRegister,FormLogin
 # Create your views here.
 def register(request):
     if request.method == 'POST':
-        form = FormRegister(request.POST)
+        form = FormRegister(data=request.POST)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('login'))
@@ -16,6 +16,8 @@ def register(request):
         form = FormRegister()
     context = {'title': 'Регистрация','form':form}
     return render(request,'user/register.html',context=context)
+
+
 
 def login(request):
     if request.method == 'POST':
